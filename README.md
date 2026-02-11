@@ -1,4 +1,4 @@
-# PSTP Bootcamp 2025
+# PSTP Bootcamp 2026
 
 Welcome to the course website for the 2026 PSTP Bioinformatics Bootcamp!<br />
 
