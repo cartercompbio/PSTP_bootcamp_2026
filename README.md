@@ -1,14 +1,14 @@
 # PSTP Bootcamp 2025
 
-Welcome to the course website for the 2025 PSTP Bioinformatics Bootcamp!<br />
+Welcome to the course website for the 2026 PSTP Bioinformatics Bootcamp!<br />
 
 ![HomeImage](https://imgs.xkcd.com/comics/dna.png)
 
 ## Course Information
 
-**When**: March 30 - April 10 ; xPM-xPM PDT
+**When**: March 30 - April 10; ADD TIME
 
-**Where**: 
+**Where**: ADD ROOM
 
 **Instructor**: [Hannah Carter](https://carterlab.info/) (hkcarter@health.ucsd.edu)
 
@@ -27,7 +27,7 @@ Questions or concerns? Please reach out by email.
 | 2  |   | **Project Work** | NA  | TAs | 
 | 3  |   | **Module 2**: Command Line Tutorial | Day_3  | TAs | 
 | 4  |   | **Module 3**: Basic Programming | Day_4  | TAs |
-| 5  |   | **Module 4**: NDex and Cytoscape | Day_6 |  | 
+| 5  |   | **Module 4**:  | Day_6 |  | 
 |  | **Week 2**  | **Specific Project Work**: *Introduction to campus resources for computational research*  |  |  | 
 | 6  |   | **Module 5**:  | Day_6 |Alex Jambor | 
 | 7  |   | **Module 6**:  | Day_7 | TAs  | 
