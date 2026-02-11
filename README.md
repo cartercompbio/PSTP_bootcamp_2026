@@ -29,8 +29,8 @@ Questions or concerns? Please reach out by email.
 | 4  |   | **Module 3**: Basic Programming | Day_4  | TAs |
 | 5  |   | **Module 4**:  | Day_6 |  | 
 |  | **Week 2**  | **Specific Project Work**: *Introduction to campus resources for computational research*  |  |  | 
-| 6  |   | **Module 5**:  | Day_6 |Alex Jambor | 
-| 7  |   | **Module 6**:  | Day_7 | TAs  | 
+| 6  |   | **Module 5**:  | Day_6 |   | 
+| 7  |   | **Module 6**:  | Day_7 |   | 
 | 8  |   |**Project Work** | NA | TAs |
 | 9  |   | **Project Work**  | NA  | TAs |
 
