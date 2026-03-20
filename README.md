@@ -6,15 +6,15 @@ Welcome to the course website for the 2026 PSTP Bioinformatics Bootcamp!<br />
 
 ## Course Information
 
-**When**: March 30 - April 10; ADD TIME
+**When**: April 13-24; 3-5PM PDT
 
-**Where**: ADD ROOM
+**Where**: MET 321
 
 **Instructor**: [Hannah Carter](https://carterlab.info/) (hkcarter@health.ucsd.edu)
 
 **TAs**: <br>
-TA1 (username1@ucsd.edu) <br>
-TA2 (username2@ucsd.edu)
+Daniela Salgado Figueroa (dsalgadofigueroa@ucsd.edu) <br>
+Dante Bolzan (dbolzan@ucsd.edu)
 
 Questions or concerns? Please reach out by email.
 
@@ -23,16 +23,18 @@ Questions or concerns? Please reach out by email.
 | Day  | Date | Topic | Links | Instructors |
 | ------------- | ------------- |------------- |------------- |------------- |
 |  | **Week 1**   | **Basics**: *Tools and environments for bioinformatics*  |  |  | 
-| 1  |   | **Module 1**: Accessing HPC and running 3rd party tools  | [Day_1](https://github.com/cartercompbio/PSTP_bootcamp_2024/tree/main/Modules/Day_1)  | TAs | 
-| 2  |   | **Project Work** | NA  | TAs | 
-| 3  |   | **Module 2**: Command Line Tutorial | Day_3  | TAs | 
-| 4  |   | **Module 3**: Basic Programming | Day_4  | TAs |
-| 5  |   | **Module 4**:  | Day_6 |  | 
+| 1  | 04/13/2026 | **Module 1**: Accessing HPC and Command Line Tutorial   | [Day_1](https://github.com/cartercompbio/PSTP_bootcamp_2024/tree/main/Modules/Day_1)  | TAs | 
+| 2  | 04/14/2026 | **Module 2**: Gene Pattern and the Integrative Genomics Viewer | Day_2  | Michael Reich | 
+| 3  | 04/15/2026 | **Module 3**: Jupyter Notebooks / Basic coding and visualization | Day_3  | TAs |
+| 3  | 04/15/2026 | **Project Work**: Getting Project Data Ready | NA | TAs |
 |  | **Week 2**  | **Specific Project Work**: *Introduction to campus resources for computational research*  |  |  | 
-| 6  |   | **Module 5**:  | Day_6 |   | 
-| 7  |   | **Module 6**:  | Day_7 |   | 
-| 8  |   |**Project Work** | NA | TAs |
-| 9  |   | **Project Work**  | NA  | TAs |
+| 4  | 04/20/2026 | **Module 4**: Dimensionality Reduction? | Day_4 | TAs  | 
+| 4  | 04/20/2026 | **Project Work** | NA | TAs  | 
+| 5  | 04/21/2026 | **Module 5**: AI in Healthcare / AllofUs Workbench | NA |  /Sally Baxter | 
+| 6  | 04/22/2026 | **Module 6**: Matching Algorithms for Clinical Data | Day_5 | TAs  | 
+| 6  | 04/22/2026  | **Project Work**  | NA | TAs |
+| 7  | 04/23/2026 | **Project Work** | NA | TAs |
+| 8  | 04/24/2026 | **Project Work** | NA | TAs |
 
 Extra time will be used for the submitted projects.
 
