@@ -6,7 +6,7 @@ Welcome to the course website for the 2026 PSTP Bioinformatics Bootcamp!<br />
 
 ## Course Information
 
-**When**: April 13-24; 3-5PM PDT
+**When**: April 13-15 and 20-24; 3-5PM PDT
 
 **Where**: MET 321
 
