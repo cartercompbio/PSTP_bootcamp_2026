@@ -28,10 +28,10 @@ Questions or concerns? Please reach out by email.
 | 3  | 04/15/2026 | **Module 3**: Jupyter Notebooks / Basic coding and visualization | Day_3  | TAs |
 | 3  | 04/15/2026 | **Project Work**: Getting Project Data Ready | NA | TAs |
 |  | **Week 2**  | **Specific Project Work**: *Introduction to campus resources for computational research*  |  |  | 
-| 4  | 04/20/2026 | **Module 4**: Dimensionality Reduction? | Day_4 | TAs  | 
+| 4  | 04/20/2026 | **Module 4**: Dimensionality Reduction (?) | Day_4 | TAs  | 
 | 4  | 04/20/2026 | **Project Work** | NA | TAs  | 
-| 5  | 04/21/2026 | **Module 5**: AllofUs Workbench / AI in Healthcare | NA |  Sally Baxter / TBD | 
-| 6  | 04/22/2026 | **Module 6**: Matching Algorithms for Clinical Data? | Day_5 | TAs  | 
+| 5  | 04/21/2026 | **Module 5**: AllofUs Workbench / AI in Healthcare (?) | NA |  Sally Baxter / TBD | 
+| 6  | 04/22/2026 | **Module 6**: Matching Algorithms for Clinical Data (?) | Day_5 | TAs  | 
 | 7  | 04/23/2026 | **Project Work** | NA | TAs |
 | 8  | 04/24/2026 | **Project Work** | NA | TAs |
 
