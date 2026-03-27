@@ -24,19 +24,19 @@ Welcome to the Triton Shared Computing Cluster (TSCC) Usage Guide! This manual i
 ### Step 3: Anaconda Installation
 #### Download
 - Retrieve the Anaconda installation script using: 
-  `curl -O https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh`
+  `curl -O https://repo.anaconda.com/archive/Anaconda3-2025.12-2-Linux-x86_64.sh`
 
 #### Installation
-- Execute the script: `bash Anaconda3-2024.02-1-Linux-x86_64.sh`
+- Execute the script: `bash Anaconda3-2025.12-2-Linux-x86_64.sh`
 - Follow the on-screen prompts to install anaconda into an "anaconda3" folder in your local directory.
 - Do you want to automatically initialize > yes
 - type "conda" to verify installation
 
 ### Step 4: Creating an Anaconda Environment
-- **Command:** `conda create -n python_3_8 python=3.8`
-  - **Explanation:** This command creates a new environment named "python_3_8" with Python 3.8.
-- **Command:** `conda activate python_3_8`
-  - **Explanation:** This command activates the environment "python_3_8".
+- **Command:** `conda create -n python_3_11 python=3.11`
+  - **Explanation:** This command creates a new environment named "python_3_11" with Python 3.11.
+- **Command:** `conda activate python_3_11`
+  - **Explanation:** This command activates the environment "python_3_11".
 - **Command:** `conda deactivate`
   - **Explanation:** This command deactivates the current environment.
 
