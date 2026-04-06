@@ -33,7 +33,7 @@ Questions or concerns? Please reach out by email.
 | 5  | 04/21/2026 | **Module 5**: AllofUs Workbench / AI in Healthcare (?) | NA |  Sally Baxter / TBD | 
 | 6  | 04/22/2026 | **Module 6**: Matching Algorithms for Clinical Data | Day_5 | TAs  | 
 | 7  | 04/23/2026 | **Project Work** | NA | TAs |
-| 8  | 04/24/2026 | **Project Work** | NA | TAs |
+| 8  | 04/24/2026 | **Vaccine Response Prediction** | NA | Tal Einav |
 
 Extra time will be used for the submitted projects.
 
