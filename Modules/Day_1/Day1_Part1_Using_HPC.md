@@ -24,6 +24,7 @@ Welcome to the Triton Shared Computing Cluster (TSCC) Usage Guide! This manual i
   7. Type in the following into the basic SSH settings:
     - **Remote Host:** login.tscc.sdsc.edu
     - **Username:** Please refer to the TAs for this information.
+  8. Click Ok.
 
 - **Command Line Users (Mac/Linux):**
   - Initiate a connection with: `ssh yourUsername@login.tscc.sdsc.edu`
