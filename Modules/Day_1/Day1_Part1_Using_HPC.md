@@ -14,9 +14,16 @@ Welcome to the Triton Shared Computing Cluster (TSCC) Usage Guide! This manual i
 - Duo authentication is a prerequisite.
 
 #### Step 2: Cluster Connection via SSH
-- **Windows Users:** Utilize MobaXTerm for SSH connectivity.
-  - **Hostname:** login.tscc.sdsc.edu
-  - **Username:** Please refer to the TAs for this information.
+- **Windows Users:** Utilize [MobaXTerm](https://mobaxterm.mobatek.net/) for SSH connectivity.
+  1. Download [MobaXTerm](https://mobaxterm.mobatek.net/download.html) (free version, installer edition)
+  2. Unzip (extract all) MobaXterm_Installer_v26.2.zip
+  3. Go into the MobaXterm_Installer_v26.2 directory and double click on MobaXterm_installer_26.2.msi
+  4. Go through the installation steps.
+  5. Open MobaXTerm and click on the "Session" tab.
+  6. Click on the SSH tab.
+  7. Type in the following into the basic SSH settings:
+    - **Remote Host:** login.tscc.sdsc.edu
+    - **Username:** Please refer to the TAs for this information.
 
 - **Command Line Users (Mac/Linux):**
   - Initiate a connection with: `ssh yourUsername@login.tscc.sdsc.edu`
