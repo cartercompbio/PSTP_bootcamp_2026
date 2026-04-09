@@ -80,13 +80,14 @@ Welcome to the Triton Shared Computing Cluster (TSCC) Usage Guide! This manual i
 8. Check the contents of the file using the `head` command followed by the name of this new file.
 
 ### Step 6: Interactive Node Request
-- Command: `srun --partition=hotel --pty --nodes=1 --ntasks-per-node=1 -t 00:30:00 -A htl179 --qos=hotel --wait=0 --export=ALL /bin/bash`
+- Command: `srun --partition=hotel --pty --nodes=1 --ntasks-per-node=1 --mem 2G -t 00:30:00 -A htl179 --qos=hotel --wait=0 --export=ALL /bin/bash`
   - **Explanation of Parameters:**
     - `--partition=hotel`: Assigns the debug partition.
     - `--pty`: Engages a pseudo-terminal.
     - `--nodes=1`: Designates one node.
     - `--ntasks-per-node=1`: Sets the task count per node to 1.
     - `-t 00:30:00`: Limits the time to 30 minutes.
+    - `--mem 2G`: Allocates 2G of memory
     - `-A htl179`: Defines the account.
     - `--wait=0`: Eliminates waiting time.
     - `--export=ALL`: Exports all environmental variables.
