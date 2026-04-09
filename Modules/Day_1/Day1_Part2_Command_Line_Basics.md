@@ -25,6 +25,7 @@ Navigating the filesystem in Bash is a fundamental skill. Here are some essentia
 	- `cd ..`: Move up one directory.
 	- `cd`: Return to the home directory.
 	- `cd directory_name`: Move to the provided directory.
+ 	- `cd -`: Go back to previous directory.
 - `mkdir` (Make Directory): Creates a new directory.
 - `rmdir` (Remove Directory): Deletes an empty directory.
 - `touch`: Creates a new empty file or updates the timestamp of an existing file.
