@@ -42,7 +42,7 @@ Welcome to the Triton Shared Computing Cluster (TSCC) Usage Guide! This manual i
 - Type "conda" to verify installation
 
 ### Step 4: Creating an Anaconda Environment
-- **Command:** `conda create -n python_3_11 python=3.11`
+- **Command:** `conda create -n python_3_11 python=3.11 -y`
   - **Explanation:** This command creates a new environment named "python_3_11" with Python 3.11.
 - **Command:** `conda activate python_3_11`
   - **Explanation:** This command activates the environment "python_3_11".
