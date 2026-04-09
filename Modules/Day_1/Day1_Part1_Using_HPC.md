@@ -95,6 +95,10 @@ Welcome to the Triton Shared Computing Cluster (TSCC) Usage Guide! This manual i
     - `/bin/bash`: Initiates a Bash shell post-allocation.
 
 ### Step 7: Launching Jupyter on an Interactive Node to run Python code
+1. In your base environment, `pip install notebook`: this installs Jupyter.
+2. Choose an environment that you want Jupyter to have access to.
+3. `conda activate your_env_name`
+4. `pip install ipykernel`: makes environment visible within Jupyter notebooks
 
 On your TSCC account in your base directory:
 
@@ -104,11 +108,9 @@ On your TSCC account in your base directory:
 
 TSCC utilizes a bash script “Galyleo” to serve Jupyter notebooks more securely.
 
-`module load python3essential`
+`galyleo launch --account htl179 --qos hotel --cpus 1 --memory 8 --time-limit 00:30:00 --partition hotel --conda-env base --env-modules slurm/tscc/23.02.7 --conda-init /tscc/nfs/home/yourUsername/anaconda3/etc/profile.d/conda.sh`
 
-`galyleo launch --account htl179 --qos hotel --cpus 1 --memory 8 --time-limit 00:30:00 --partition hotel --conda-env python3essential-1.99.0 --env-modules slurm/tscc/23.02.7 --conda-init /tscc/projects/ps-yeolab4/software/miniconda_tscc2/etc/profile.d/conda.sh`
-
-We are opening a Jupyter notebook in a conda environment with a bunch of important Python packages preinstalled. If you want to run Jupyter in your own environment, you would need to change the paths associated with 'conda' in the galyleo command. 
+We are opening a Jupyter notebook in a conda environment that you created.
 
 Create a new notebook called hello_notebook in your hello_world scripts folder from inside jupyter. 
 
