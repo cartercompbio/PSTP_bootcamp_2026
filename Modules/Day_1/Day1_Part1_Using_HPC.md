@@ -38,7 +38,8 @@ Welcome to the Triton Shared Computing Cluster (TSCC) Usage Guide! This manual i
 - Execute the script: `bash Anaconda3-2025.12-2-Linux-x86_64.sh`
 - Follow the on-screen prompts to install anaconda into an "anaconda3" folder in your local directory.
 - Do you want to automatically initialize > yes
-- type "conda" to verify installation
+- Type `source ~/.bashrc`
+- Type "conda" to verify installation
 
 ### Step 4: Creating an Anaconda Environment
 - **Command:** `conda create -n python_3_11 python=3.11`
