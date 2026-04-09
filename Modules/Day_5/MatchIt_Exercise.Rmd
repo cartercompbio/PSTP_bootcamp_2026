@@ -1,0 +1,257 @@
+---
+title: "Matching Algorithms in Clinical Data"
+author: "Workshop Exercise"
+output: html_document
+---
+
+# Objective
+
+In this exercise, you will:
+
+- Understand confounding in observational data
+- Estimate propensity scores
+- Perform matching using:
+  - Propensity Score Matching (PSM)
+  - Nearest Neighbor Matching
+- Evaluate covariate balance
+
+---
+
+# Introduction
+
+Matching is used in the context of estimating the causal effect of a binary treatment or exposure on an outcome while controlling for measured pre-treatment variables, typically confounding variables or variables prognostic of the outcome. The goal of matching is to produce covariate balance, that is, for the distributions of covariates in the two groups to be approximately equal to each other, as they would be in a successful randomized experiment. The importance of covariate balance is that it allows for increased robustness to the choice of model used to estimate the treatment effect; in perfectly balanced samples, a simple difference in means can be a valid treatment effect estimate. 
+
+# Environment Setup
+
+We install and load:
+
+- tidyverse → data manipulation and visualization
+- MatchIt → performs matching algorithms
+- cobalt → evaluates covariate balance
+
+```{r setup, message=FALSE, warning=FALSE}
+
+# Install required packages
+#install.packages(c('tidyverse', 'MatchIt', 'cobalt'))
+
+# Import packages
+library(tidyverse)
+library(MatchIt)
+library(cobalt)
+
+#Setting a random seed ensures reproducibility
+set.seed(123)
+
+```
+
+# Simulated Clinical Dataset
+
+We first simulate a realistic clinical dataset of 200 patients:
+
+- Age, severity, comorbidity, sex → patient characteristics
+- Treatment assignment is biased: Older, sicker patients are more likely to be treated
+- Outcome depends on both treatment and severity
+
+This creates confounding, mimicking real-world clinical data.
+
+```{r, eval = FALSE}
+n <- 200
+
+data <- tibble(age = rnorm(n, mean = 60, sd = 10),
+  severity = sample(c("Low", "Medium", "High"), n, replace = TRUE),
+  comorbidity = rbinom(n, 1, 0.4),
+  sex = sample(c("Male", "Female"), n, replace = TRUE) )
+
+# Encode severity numerically for modeling
+data <- data %>%
+  mutate(severity_num = case_when(
+      severity == "Low" ~ 1,
+      severity == "Medium" ~ 2,
+      severity == "High" ~ 3) )
+
+# Encode sex numerically for modeling
+data <- data %>%
+  mutate(sex_num = case_when(
+      sex == "Female" ~ 1,
+      sex == "Male" ~ 0) )
+
+# Treatment assignment (biased!)
+data <- data %>%
+  mutate(treatment_prob = plogis(0.05*age + 0.8*severity_num + 0.5*comorbidity),
+    treatment = rbinom(n, 1, treatment_prob) )
+
+# Outcome depends on both treatment and severity
+data <- data %>%
+  mutate(outcome = rbinom(n, 1, plogis(-1 + 0.8*treatment - 0.7*severity_num)) )
+
+head(data)
+
+#write.table(x=data, file="./simulated_data.tsv", 
+#            quote = FALSE, sep = "\t", row.names = FALSE, col.names = TRUE)
+
+```
+
+```{r}
+data <- read.delim(file="./simulated_data.tsv")
+head(data)
+```
+
+# Step 1: Explore Confounding Variable
+
+We compare baseline characteristics between treated and untreated patients
+If these groups differ, we cannot directly compare outcomes.
+
+```{r}
+data %>%
+  group_by(treatment) %>%
+  summarise(
+    mean_age = mean(age),
+    mean_severity = mean(severity_num),
+    comorbidity_rate = mean(comorbidity)
+  )
+```
+
+## Naïve Outcome Comparison
+
+A naïve outcome comparison is simply comparing outcomes between treated and untreated groups without adjusting for differences between them. **Is the treatment effective?**
+
+This comparison assumes that the two groups are comparable, but in observational data, they almost never are. So when we see a difference in outcomes, we don’t know if it's due to the treatment or due to baseline differences.
+
+```{r}
+data %>%
+  group_by(treatment) %>%
+  summarise(outcome_rate = mean(outcome))
+
+```
+
+## Check Initial Imbalance
+
+It's always a good idea to view the initial imbalance in one’s data that matching is attempting to eliminate. 
+
+```{r}
+# No matching; constructing a pre-match matchit object
+m.out0 <- matchit(treatment ~ age + severity_num + comorbidity + sex_num,
+                data = data, method = NULL, distance = "glm")
+```
+
+The first argument is a formula relating the treatment to the covariates that will be used in estimating the propensity score and for which balance is to be assessed. The data argument specifies the dataset where these variables exist. Typically, the method argument specifies the method of matching to be performed; here, we set it to NULL so we can assess balance prior to matching. The distance argument specifies the method for estimating the propensity score, computed as the predicted probability of being the treated group given the covariates; here, we set it to "glm" for generalized linear model, which implements logistic regression by default (see ?distance for other options).
+
+Below we assess balance on the unmatched data using summary():
+
+```{r}
+# Checking balance prior to matching
+summary(m.out0)
+```
+
+We can see severe imbalances as measured by the standardized mean differences (Std. Mean Diff.), variance ratios (Var. Ratio), and empirical cumulative distribution function (eCDF) statistics. Values of standardized mean differences and eCDF statistics close to zero and values of variance ratios close to one indicate good balance, and here many of them are far from their ideal values.
+
+
+# Step 2: Matching
+
+## Estimate Propensity Scores
+
+A propensity score is the probability that a patient receives a treatment given their observed characteristics. It is typically estimated using logistic regression.
+
+The key advantage is that it reduces many covariates into a single summary measure, allowing us to match patients based on this score rather than trying to match on each variable individually.
+
+```{r}
+
+ps_model <- glm(treatment ~ age + severity_num + comorbidity + sex_num,
+                data = data, family = binomial)
+
+data$propensity_score <- predict(ps_model, type = "response")
+
+summary(data$propensity_score)
+
+```
+
+## Visualize Propensity Scores
+
+This plot shows whether treated and control groups overlap. **Is there overlap between groups?**
+
+Overlap is essential here because no overlap would mean there's no valid comparison. This is called common support.
+The common support is important for propensity score matching because it represents the range of scores for which it is possible to find a match between a treatment and a control individual. Matching can only be performed within this shared.
+
+```{r}
+
+ggplot(data, aes(x = propensity_score, fill = factor(treatment))) +
+  geom_density(alpha = 0.5) +
+  labs(fill = "Treatment", title = "Propensity Score Distribution")
+
+```
+
+## Perform Propensity Score Matching (PSM)
+
+Now, matching can be performed. Here, we begin by briefly demonstrating 1:1 nearest neighbor (NN) matching on the propensity score. One by one, each treated unit is paired with an available control unit that has the closest propensity score to it. Any remaining control units are left unmatched and excluded from further analysis. 
+
+We use the same syntax as before, but this time specify method = "nearest" to implement nearest neighbor matching, again using a logistic regression propensity score. Many other arguments are available for tuning the matching method and method of propensity score estimation.
+
+The matching outputs are contained in the psm_model object. Printing this object gives a description of the type of matching performed:
+
+```{r}
+
+psm_model <- matchit(treatment ~ age + severity_num + comorbidity + sex_num,
+                     data = data,
+                     method = "nearest",
+                     distance = "glm")
+psm_model
+
+```
+The key components of the m.out1 object are weights (the computed matching weights), subclass (matching pair membership), distance (the estimated propensity score), and match.matrix (which control units are matched to each treated unit). How these can be used for estimating the effect of the treatment after matching is detailed in vignette("estimating-effects") for the *MatchIt* package.
+
+# Step 3: Assessing the Quality of Matches
+
+Although matching on the propensity score is often effective at eliminating differences between the treatment groups to achieve covariate balance, its performance in this regard must be assessed. If covariates remain imbalanced after matching, the matching is considered unsuccessful, and a different matching specification should be tried. 
+
+## Check Balance After Matching
+
+```{r}
+# Checking balance after NN matching
+summary(psm_model, un = FALSE)
+
+```
+
+At the top is a summary of covariate balance after matching. Although balance has improved for some covariates, in general balance is still quite poor, indicating that nearest neighbor propensity score matching is not sufficient for removing confounding in this dataset. The final column, Std. Pair Diff, displays the average absolute within-pair difference of each covariate. When these values are small, better balance is typically achieved and estimated effects are more robust to misspecification of the outcome model 
+
+Next is a table of the sample sizes before and after matching. Ideally, unmatched units would be those far from the treated units and would require greater extrapolation were they to have been retained. We can visualize the distribution of propensity scores of those who were matched using plot() with type = "jitter":
+
+```{r}
+
+plot(psm_model, type = "jitter", interactive = FALSE)
+#plot(psm_model, type = "density", interactive = FALSE,
+#     which.xs = ~age + severity_num + comorbidity + sex_num)
+love.plot(psm_model, binary = "std")
+
+```
+
+**Did the matching algorithm successfully improve comparability in our simulated data?**
+
+# Trying a Different Matching Specification
+Given the poor performance of nearest neighbor matching in this example, we can try a different matching method or make other changes to the matching algorithm or distance specification. (**Hint:** For exploring other methods, visit https://cran.r-project.org/web/packages/MatchIt/vignettes/matching-methods.html)
+
+# Downstream analysis: Extract Matched Data
+
+We can now extract the matched dataset and compare outcomes again.
+
+```{r}
+matched_data <- match.data(psm_model)
+matched_data
+```
+
+This is the dataset that should be used for analysis, as the matched groups are more comparable in terms of baseline characteristics. As a result, the estimated treatment effect should be more reliable and less biased by confounding.
+ 
+```{r}
+
+# Outcome After Matching
+matched_data %>%
+  group_by(treatment) %>%
+  summarise(outcome_rate = mean(outcome))
+  
+```
+
+## Sources:
+- https://dlab.berkeley.edu/news/introduction-propensity-score-matching-matchit
+- https://cran.r-project.org/web/packages/MatchIt/vignettes/MatchIt.html
+- https://cran.r-project.org/web/packages/MatchIt/vignettes/matching-methods.html
+
+

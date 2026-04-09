@@ -30,7 +30,7 @@ Questions or concerns? Please reach out by email.
 |  | **Week 2**  | **Specific Project Work** |  |  | 
 | 4  | 04/20/2026 | **Module 4**: Exploratory Data Analysis (EDA) | [Day_4](https://github.com/cartercompbio/PSTP_bootcamp_2026/tree/main/Modules/Day_4) | TAs  | 
 | 4  | 04/20/2026 | **Project Work:** Perform EDA on your own data | NA | TAs  | 
-| 5  | 04/21/2026 | **Module 5**: Matching Algorithms for Clinical Data | Day_5 |  TAs | 
+| 5  | 04/21/2026 | **Module 5**: Matching Algorithms for Clinical Data | [Day_5](https://github.com/cartercompbio/PSTP_bootcamp_2026/tree/main/Modules/Day_5) |  TAs | 
 | 6  | 04/22/2026 | **Module 6**: AllofUs Workbench | NA | Melissa Gymrek, Ph.D. | 
 | 7  | 04/23/2026 | **Project Work** | NA | TAs |
 | 8  | 04/24/2026 | **Module 7:** Vaccine Response Prediction | NA | Tal Einav, Ph.D. |
