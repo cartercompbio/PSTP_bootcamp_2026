@@ -123,7 +123,7 @@ Save your work.
 ### Creating a conda environment to run R code.
 
 1. **Create a New Conda Environment for R (Optional):**
-   - If you want a separate environment for R, create a new one using: `conda create -n r_env`
+   - If you want a separate environment for R, create a new one using: `conda create -n r_env -y`
    - Activate the new environment: `conda activate r_env`
 
 2. **Install R Base:**
