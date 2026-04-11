@@ -160,7 +160,7 @@ Save your work.
 - Quit R with `q()`.
 
 #### Launch Jupyter in your r environment.
-- `galyleo launch --account htl179 --qos hotel --cpus 1 --memory 8 --time-limit 00:30:00 --partition hotel --conda-env r_env --env-modules slurm/tscc/23.02.7 --conda-init /tscc/nfs/home/etrain104/anaconda/etc/profile.d/conda.sh`
+- `galyleo launch --account htl179 --qos hotel --cpus 1 --memory 8 --time-limit 00:30:00 --partition hotel --conda-env r_env --env-modules slurm/tscc/23.02.7 --conda-init /tscc/nfs/home/yourUsername/anaconda3/etc/profile.d/conda.sh`
 
 #### Create a New R Notebook:
 - Create a new notebook and name it `hello_world_r.ipynb`.
