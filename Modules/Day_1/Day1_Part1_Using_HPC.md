@@ -148,7 +148,7 @@ Save your work.
 ### Step 8: Running R code in a Jupyter notebook
 
 #### Install the R Kernel:
-- Inside your Conda environment with r-base installed, install the IRkernel package by running `conda install -c r r-irkernel`.
+- Inside your Conda environment with r-base installed, install the IRkernel package by running `conda install -c r r-irkernel -y`.
 - This will allow Jupyter to run R code in addition to Python.
 
 #### Install Jupyter:
