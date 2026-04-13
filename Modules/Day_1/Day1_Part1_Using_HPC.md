@@ -55,8 +55,8 @@ Welcome to the Triton Shared Computing Cluster (TSCC) Usage Guide! This manual i
 2. Go to the directory where you downloaded run_hello.sb in the terminal.
 3. `scp run_hello.sb yourUsername@login.tscc.sdsc.edu:/tscc/nfs/home/yourUsername/`
 4. `sbatch run_hello.sb`
-5. Type `ls`. You should see a newly created "hello_world.txt" file.
-6. Type `head hello_world.txt`. You should see "Hello World" printed on the screen.
+5. Type `ls`. You should see a newly created "hello.txt" file.
+6. Type `head hello.txt`. You should see "Hello World!" printed on the screen.
 
 ### Step 6: Interactive Node Request
 - Command: `srun --partition=hotel --pty --nodes=1 --ntasks-per-node=1 --mem 2G -t 00:30:00 -A htl179 --qos=hotel --wait=0 --export=ALL /bin/bash`
