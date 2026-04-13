@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH -J hello_world #Optional, short for --job-name
+#SBATCH -N 1 #Number of nodes
+#SBATCH -n 1 #Total number of tasks
+#SBATCH -c 1 #Number of threads per process
+#SBATCH -t 00:05:00 #Short for --time walltime limit
+#SBATCH -o slurm-%j.out #standard output name
+#SBATCH -e slurm-%j.err #Optional, standard error name
+#SBATCH -p hotel #Partition name
+#SBATCH -q hotel #QOS name
+#SBATCH -A htl179 #Allocation name
+
+echo "Hello World!"
+# Output file
+output_file="hello.txt"
+
+# Write text to file
+echo "Hello World!" > "$output_file"
+
+
