@@ -51,7 +51,7 @@ Welcome to the Triton Shared Computing Cluster (TSCC) Usage Guide! This manual i
 
 ### Step 5: Batch Job Submission
 - Example: Executing a "Hello World" bash script.
-1. Download run_hello.sb (under Day_1 github directory).
+1. Download run_hello.sb under Day_1 github directory (click on the file and click on the download icon in the top right).
 2. Go to the directory where you downloaded run_hello.sb in the terminal.
 3. `scp run_hello.sb yourUsername@login.tscc.sdsc.edu:/tscc/nfs/home/yourUsername/`
 4. `sbatch run_hello.sb`
