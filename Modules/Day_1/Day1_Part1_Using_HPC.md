@@ -75,10 +75,7 @@ Welcome to the Triton Shared Computing Cluster (TSCC) Usage Guide! This manual i
 
 ### Step 7: Launching Jupyter on an Interactive Node to run Python code
 1. In your base environment, `pip install notebook`: this installs Jupyter.
-2. Choose an environment that you want Jupyter to have access to.
-3. `conda activate your_env_name`
-4. `pip install ipykernel`: makes environment visible within Jupyter notebooks
-
+   
 On your TSCC account in your base directory:
 
 `module load shared`
@@ -89,9 +86,9 @@ TSCC utilizes a bash script “Galyleo” to serve Jupyter notebooks more secure
 
 `galyleo launch --account htl179 --qos hotel --cpus 1 --memory 8 --time-limit 00:30:00 --partition hotel --conda-env base --env-modules slurm/tscc/23.02.7 --conda-init /tscc/nfs/home/yourUsername/anaconda3/etc/profile.d/conda.sh`
 
-We are opening a Jupyter notebook in a conda environment that you created.
+We are opening a Jupyter notebook in the base environment.
 
-Create a new notebook called hello_notebook in your hello_world scripts folder from inside jupyter. 
+Create a new notebook called hello_notebook from inside jupyter. 
 
 Specify that you are using a Python3 kernel.
 
@@ -101,7 +98,7 @@ Save your work.
      
 ### Creating a conda environment to run R code.
 
-1. **Create a New Conda Environment for R (Optional):**
+1. **Create a New Conda Environment for R:**
    - If you want a separate environment for R, create a new one using: `conda create -n r_env -y`
    - Activate the new environment: `conda activate r_env`
 
