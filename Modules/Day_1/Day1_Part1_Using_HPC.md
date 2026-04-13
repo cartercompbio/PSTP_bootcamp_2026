@@ -88,6 +88,8 @@ TSCC utilizes a bash script “Galyleo” to serve Jupyter notebooks more secure
 
 We are opening a Jupyter notebook in the base environment.
 
+Ctrl + click on the link shown in the terminal to open jupyter.
+
 Create a new notebook called hello_notebook from inside jupyter. 
 
 Specify that you are using a Python3 kernel.
