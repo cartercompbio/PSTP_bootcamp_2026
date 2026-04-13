@@ -29,7 +29,7 @@ Navigating the filesystem in Bash is a fundamental skill. Here are some essentia
 - `mkdir` (Make Directory): Creates a new directory.
 - `rmdir` (Remove Directory): Deletes an empty directory.
 - `touch`: Creates a new empty file or updates the timestamp of an existing file.
-- `rm` (Remove): Deletes files. Use carefully, especially with `rm -r` for recursive deletion. When used incorrectly, this can delete your whole file system, and unlike your computer's operating system, there is no bin to pull deleted files out of. When they are deleted, they are gone.
+- `rm` (Remove): Deletes files. Use carefully, especially with `rm -rf` for recursive deletion. When used incorrectly, this can delete your whole file system, and unlike your computer's operating system, there is no bin to pull deleted files out of. When they are deleted, they are gone.
 
 ## Basic File Operations
 
