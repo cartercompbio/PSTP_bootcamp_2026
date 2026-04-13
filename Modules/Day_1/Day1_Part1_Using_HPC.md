@@ -105,7 +105,7 @@ Save your work.
    - Activate the new environment: `conda activate r_env`
 
 2. **Install R Base:**
-   - To install the R base package, run: `conda install -c r r-base`
+   - To install the R base package, run: `conda install -c r r-base -y`
    - This command installs the R language in your Conda environment.
 
 3. **Verify R Installation:**
