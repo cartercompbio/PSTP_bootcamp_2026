@@ -49,35 +49,14 @@ Welcome to the Triton Shared Computing Cluster (TSCC) Usage Guide! This manual i
 - **Command:** `conda deactivate`
   - **Explanation:** This command deactivates the current environment.
 
-### Step 5: Job Submission
-- Example: Executing a "Hello World" Python script.
-1. `mkdir scripts`
-2. `cd scripts`
-3. `mkdir hello_world`
-4. Let's practice transferring files onto TSCC.
-  Download the files `hello.py` and `run_hello.sb` from the `scripts/hello_world` folder in the repository.
-
-  **Windows users:**
-  - Go to your MobaXTerm.
-
-  **Mac users:**
-  - Go to your terminal.
-
-  We will use the command `scp` to transfer the files to TSCC.
-
-  Challenge: Change directories to your downloads folder using the command line.
-
-  To copy the hello.py file to TSCC, use the following command:
-  `scp hello.py user@login.tscc.sdsc.edu:/tscc/nfs/home/yourtsccusername/scripts/hello_world`
-
-  For instance, my command is `scp drives/c/Users/amonell/Downloads/hello.py etrain104@login.tscc.sdsc.edu:/tscc/nfs/home/etrain104/scripts/hello_world`
-
-  Challenge: Copy the run_hello.sb file to TSCC using the same method.
-
-5. Go back to TSCC and navigate to the `scripts/hello_world` directory.
-6. Submit the job using the command: `sbatch run_hello.sb`
-7. Type `ls` to see the folders in this directory. (Hint) there is a file that was not there before.
-8. Check the contents of the file using the `head` command followed by the name of this new file.
+### Step 5: Batch Job Submission
+- Example: Executing a "Hello World" bash script.
+1. Download run_hello.sb (under Day_1 github directory).
+2. Go to the directory where you downloaded run_hello.sb in the terminal.
+3. `scp run_hello.sb yourUsername@login.tscc.sdsc.edu:/tscc/nfs/home/yourUsername/`
+4. `sbatch run_hello.sb`
+5. Type `ls`. You should see a newly created "hello_world.txt" file.
+6. Type `head hello_world.txt`. You should see "Hello World" printed on the screen.
 
 ### Step 6: Interactive Node Request
 - Command: `srun --partition=hotel --pty --nodes=1 --ntasks-per-node=1 --mem 2G -t 00:30:00 -A htl179 --qos=hotel --wait=0 --export=ALL /bin/bash`
