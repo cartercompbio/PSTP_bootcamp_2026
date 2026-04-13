@@ -88,8 +88,8 @@ nano myfile.txt
 `nano myfile.txt`: can edit file
 
 Some useful commands:
-To exit nano, type Ctrl + 'X'.
-To find a string, type Ctrl + 'W'.
+- To exit nano, type Ctrl + 'X'.
+- To find a string, type Ctrl + 'W'.
 
 ### Practice Exercises
 
