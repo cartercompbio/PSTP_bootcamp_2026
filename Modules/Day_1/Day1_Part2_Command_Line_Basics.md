@@ -74,41 +74,28 @@ less largefile.txt
 
 With `less`, you can use the arrow keys to move up and down or search for text by typing `/searchterm`. To quit, simply press `q`.
 
-### Editing Files with `vim`
+### Editing Files with `nano`
 
-`vim` is a powerful text editor that allows for efficient file editing directly from the command line. It has a steep learning curve but offers extensive functionality for editing and manipulating file content.
+`nano` is a text editor for editing and manipulating file content.
 
-To open or create a file with `vim`:
+To open or create a file with `nano`:
 
 ```bash
-vim myfile.txt
+nano myfile.txt
 ```
 
-`vim` operates in various modes, primarily:
+`nano -v myfile.txt`: open file in read mode only (cannot edit file)
+`nano myfile.txt`: can edit file
 
-- **Normal mode**: For navigating and manipulating the content.
-- **Insert mode**: For inserting text. Enter this mode by pressing `i` in normal mode.
-- **Command mode**: For saving changes, quitting, and other commands. Accessed by pressing `:` in normal mode.
-
-Basic `vim` commands:
-- `i`: Enter insert mode.
-- `Esc`: Return to normal mode.
-- `:w`: Save the file.
-- `:q`: Quit `vim`.
-- `:wq` or `:x`: Save and quit.
-- `:q!`: Quit without saving changes.
-
-### Tips for Using `vim`
-
-- **Learning Curve**: `vim` has a steep learning curve. Start with basic commands and gradually explore more advanced features.
-- **Customization**: `vim` is highly customizable. You can modify settings and shortcuts in the `.vimrc` file in your home directory.
-- **Extensions and Plugins**: There are numerous plugins available that can extend `vim`'s functionality, making it even more powerful.
+Some useful commands:
+To exit nano, type Ctrl + 'X'.
+To find a string, type Ctrl + 'W'.
 
 ### Practice Exercises
 
 1. Use `cat` to view the contents of a small file.
-2. Open a large file with `less` and practice navigating up and down. Search for the term "gene".
-3. Create a new file with `vim`. Enter some text, save, and exit `vim`.
+2. Open a large file with `less` and practice navigating up and down.
+3. Create a new file with `nano`. Enter some text, save, and exit `nano`.
 
 
 ## Understanding File Permissions in UNIX/Linux
