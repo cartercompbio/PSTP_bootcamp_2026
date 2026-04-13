@@ -19,7 +19,7 @@ Navigating the filesystem in Bash is a fundamental skill. Here are some essentia
 
 - `pwd` (Print Working Directory): Displays the path of the current directory.
 - `ls` (List): Lists files and directories in the current directory. 
-	- `ls -l` (List Long): Show a list with details like file size and owner
+	- `ls -lh` (List Long): Show a list with details like file size and owner
 	- `ls -a` (List All): Include hidden files.
 - `cd` (Change Directory): Changes the current directory. 
 	- `cd ..`: Move up one directory.
