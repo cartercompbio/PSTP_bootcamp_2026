@@ -101,16 +101,17 @@ Save your work.
 ### Creating a conda environment to run R code.
 
 1. **Create a New Conda Environment for R:**
-   - If you want a separate environment for R, create a new one using: `conda create -n r_env -y`
+   - If you want a separate environment for R, create a new one using (this install R, jupyter, and the IRkernel package): `conda create -n r_env r-base r-irkernel jupyterlab notebook -y`
    - Activate the new environment: `conda activate r_env`
 
-2. **Install R Base:**
-   - To install the R base package, run: `conda install -c r r-base -y`
-   - This command installs the R language in your Conda environment.
-
-3. **Verify R Installation:**
+2. **Verify R Installation:**
    - After installation, you can verify the installation by running: `R --version`
    - This command should show the R version installed, confirming that the installation is successful.
+
+3. **Hook R up to Jupyter:**
+   - Run R with `R`.
+   - Link R up to Jupyter with `IRkernel::installspec()`
+   - Quit R with `q()`.
 
 4. **Installing R Packages:**
    - To install an R package, you can start R in the terminal by just typing: `R`
@@ -124,18 +125,6 @@ Save your work.
    - Once you are done, you can deactivate your Conda environment by typing: `conda deactivate`
 
 ### Step 8: Running R code in a Jupyter notebook
-
-#### Install the R Kernel:
-- Inside your Conda environment with r-base installed, install the IRkernel package by running `conda install -c r r-irkernel -y`.
-- This will allow Jupyter to run R code in addition to Python.
-
-#### Install Jupyter:
-- `pip install jupyter`.
-
-#### Hook R up to Jupyter.
-- Run R with `R`.
-- Link R up to Jupyter with `IRkernel::installspec()`
-- Quit R with `q()`.
 
 #### Launch Jupyter in your r environment.
 - `galyleo launch --account htl179 --qos hotel --cpus 1 --memory 2 --time-limit 00:30:00 --partition hotel --conda-env r_env --env-modules slurm/tscc/23.02.7 --conda-init /tscc/nfs/home/yourUsername/anaconda3/etc/profile.d/conda.sh`
