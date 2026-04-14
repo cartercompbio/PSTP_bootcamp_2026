@@ -25,7 +25,7 @@ Questions or concerns? Please reach out by email.
 |  | **Week 1**   | **Basics**: *Tools and environments for bioinformatics*  |  |  | 
 | 1  | 04/13/2026 | **Module 1**: Accessing HPC and Command Line Tutorial   | [Day_1](https://github.com/cartercompbio/PSTP_bootcamp_2026/tree/main/Modules/Day_1) | TAs | 
 | 1  | 04/13/2026 | **Project Work**: Intoduce your project and data | NA | TAs |
-| 2  | 04/14/2026 | **Module 2**: Basic Programming | Day_2  | TAs | 
+| 2  | 04/14/2026 | **Module 2**: Basic Programming | [Day_2](https://github.com/cartercompbio/PSTP_bootcamp_2026/tree/main/Modules/Day_2)  | TAs | 
 | 3  | 04/15/2026 | **Module 3**: Jupyter Notebooks / Visualization | Day_3  | TAs |
 |  | **Week 2**  | **Specific Project Work** |  |  | 
 | 4  | 04/20/2026 | **Module 4**: Exploratory Data Analysis (EDA) | [Day_4](https://github.com/cartercompbio/PSTP_bootcamp_2026/tree/main/Modules/Day_4) | TAs  | 
