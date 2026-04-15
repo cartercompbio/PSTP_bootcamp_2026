@@ -101,7 +101,7 @@ Save your work.
 ### Creating a conda environment to run R code.
 
 1. **Create a New Conda Environment for R:**
-   - If you want a separate environment for R, create a new one using (this install R, jupyter, and the IRkernel package): `conda create -n r_env r-base r-irkernel jupyterlab notebook -y`
+   - If you want a separate environment for R, create a new one using (this install R, jupyter, and the IRkernel package): `conda create -n r_env -c conda-forge r-base r-irkernel jupyterlab notebook -y`
    - Activate the new environment: `conda activate r_env`
 
 2. **Verify R Installation:**
