@@ -1,0 +1,11 @@
+patient_id,age,sex,weight_kg,height_cm,blood_pressure_systolic,blood_pressure_diastolic,heart_rate,treatment,outcome_score
+1,45,Male,82,175,130,85,72,Yes,88
+2,60,Female,70,162,145,90,78,No,75
+3,37,Male,90,180,120,80,70,Yes,92
+4,52,Female,65,158,135,88,76,No,80
+5,29,Female,55,165,110,70,68,Yes,95
+6,67,Male,88,172,150,92,82,No,70
+7,41,Male,76,178,125,82,74,Yes,89
+8,73,Female,68,160,155,95,85,No,65
+9,50,Male,85,182,140,87,77,Yes,84
+10,34,Female,60,168,118,75,69,Yes,93
