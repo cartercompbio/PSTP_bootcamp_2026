@@ -55,7 +55,7 @@ We first simulate a realistic clinical dataset of 200 patients:
 This creates confounding, mimicking real-world clinical data.
 
 ```{r, eval = FALSE}
-n <- 200
+n <- 1000
 
 data <- tibble(age = rnorm(n, mean = 60, sd = 10),
   severity = sample(c("Low", "Medium", "High"), n, replace = TRUE),
@@ -77,22 +77,29 @@ data <- data %>%
 
 # Treatment assignment (biased!)
 data <- data %>%
-  mutate(treatment_prob = plogis(0.05*age + 0.8*severity_num + 0.5*comorbidity),
-    treatment = rbinom(n, 1, treatment_prob) )
+  mutate(treatment_prob = plogis(-5 + 0.05*age + 0.4*severity_num + 0.3*comorbidity),
+         treatment = rbinom(n, 1, treatment_prob) )
 
-# Outcome depends on both treatment and severity
+# Outcome depends on treatment, age, severity_num, and comorbidity
 data <- data %>%
-  mutate(outcome = rbinom(n, 1, plogis(-1 + 0.8*treatment - 0.7*severity_num)) )
+  mutate(
+    outcome = rbinom(n, 1,
+      plogis(-2 +
+             0.8*treatment +
+             0.04*age +              
+             -0.7*severity_num +     
+             0.5*comorbidity))       
+  )
 
 head(data)
 
-#write.table(x=data, file="./simulated_data.tsv", 
-#            quote = FALSE, sep = "\t", row.names = FALSE, col.names = TRUE)
+# write.table(x=data, file="./simulated_data_2.tsv", 
+#             quote = FALSE, sep = "\t", row.names = FALSE, col.names = TRUE)
 
 ```
 
 ```{r}
-data <- read.delim(file="./simulated_data.tsv")
+data <- read.delim(file="./simulated_data_2.tsv")
 head(data)
 ```
 
